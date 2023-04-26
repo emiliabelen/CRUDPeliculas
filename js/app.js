@@ -1,24 +1,29 @@
-//leer en el local storage si almacenamos un color de theme
-let temaConfigurado = JSON.parse(localStorage.getItem (`tema`))|| `dark`;
-console.log(temaConfigurado)
-cambiarTema(temaConfigurado)
+let iconoTheme = document.getElementById("iconoTheme");
 
-let btnThemeLight = document.querySelector(`#btnThemeLight`)
-let btnThemeDark = document.querySelector(`#btnThemeDark`)
+//leer en el localstorage si almacenamos un color de theme
+let temaConfigurado = JSON.parse(localStorage.getItem("tema")) || "dark";
+console.log(temaConfigurado);
+cambiarTema(temaConfigurado);
 
-btnThemeLight.addEventListener(`click`,()=> cambiarTema (`light`))
-btnThemeDark.addEventListener(`click`,()=> cambiarTema(`dark`));
+let btnThemeDark = document.querySelector("#btnThemeDark");
+let btnThemeLight = document.querySelector("#btnThemeLight");
 
+btnThemeDark.addEventListener("click", () => cambiarTema("dark"));
+btnThemeLight.addEventListener("click", () => cambiarTema("light"));
 
-function cambiarTema(color){
-document.querySelector(`body`).setAttribute(`data-bs-theme`, color) ;
+function cambiarTema(color) {
+  document.querySelector("body").setAttribute("data-bs-theme", color);
+  //guardar en localstorage
+  localStorage.setItem("tema", JSON.stringify(color));
 
+  //actualizar el icono
+  cambiarIcono(color);
+}
 
-//GUARDAR EN LOCAL STORAGE como string
-//localStorage.setItem(`tema`, color);
-
-//GUARDAR EN LOCAL STORAGE como json donde color seguramente es un array
-localStorage.setItem(`tema`, JSON.stringify(color));
-
-//ACTUALIZAR EL ICONO
+function cambiarIcono(color) {
+  if ((color === "dark")) {
+    iconoTheme.classList.replace("bi-sun-fill", "bi-moon-stars-fill");
+  } else {
+    iconoTheme.classList.replace("bi-moon-stars-fill", "bi-sun-fill");
+  }
 }
