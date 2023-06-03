@@ -1,5 +1,4 @@
-let listaPeliculas =
-  JSON.parse(localStorage.getItem("listaPeliculas")) || [];
+let listaPeliculas = JSON.parse(localStorage.getItem("listaPeliculas")) || [];
 
 //dibujar columnas
 listaPeliculas.map((pelicula) => {

@@ -1,321 +1,236 @@
-<!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="../css/style.css" />
-    <!-- agregar etiquetas metas -->
-    <title>CRUD Peliculas</title>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-          <a class="navbar-brand" href="../index.html">Peliculas</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="../index.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="administrador.html"
-                  >Administrador</a
-                >
-              </li>
-              <li class="nav-item dropdown">
-                <span
-                  class="nav-link dropdown-toggle"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-moon-stars-fill"></i>
-                </span>
-                <ul class="dropdown-menu">
-                  <li>
-                    <button class="dropdown-item" id="btnThemeLight">
-                      <i class="bi bi-sun-fill"></i> Light
-                    </button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" id="btnThemeDark">
-                      <i class="bi bi-moon-stars-fill"></i> Dark
-                    </button>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main class="container my-5">
-      <h1 class="display-4 text-center">Administrador de Peliculas</h1>
-      <hr />
-      <section class="d-flex">
-        <p class="mb-0">Opciones:</p>
-        <button
-          class="btn btn-outline-primary btn-sm ms-3"
-          id="btnCrearPelicula"
-          data-bs-target="#modalPelicula" data-bs-toggle="modal"
-        >
-          <i class="bi bi-clipboard2-plus-fill"></i>
-        </button>
-      </section>
-      <section class="mt-5">
-        <h2 class="display-6">Lista de Pelis</h2>
-        <hr />
-        <article class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Descripcion</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="tablaPelicula">
-              <tr>
-                <td scope="col">1</td>
-                <td>Super Mario Bros: La película</td>
-                <td class="tamanioCelda text-truncate">
-                  Mientras trabajan en una avería subterránea, los fontaneros de
-                  Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa
-                  tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos
-                  se separan, Mario deberá emprender una épica misión para
-                  encontrar a Luigi. Con la ayuda del champiñón local Toad y
-                  unas cuantas nociones de combate de la guerrera líder del
-                  Reino Champiñón, la princesa Peach, Mario descubre todo el
-                  poder que alberga en su interior.
-                </td>
-                <td class="tamanioCelda text-truncate">
-                  https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-large.jpg
-                </td>
-                <td>Aventura</td>
-                <td>
-                  <button class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="bi bi-x-square"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td scope="col">1</td>
-                <td>Super Mario Bros: La película</td>
-                <td class="tamanioCelda text-truncate">
-                  Mientras trabajan en una avería subterránea, los fontaneros de
-                  Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa
-                  tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos
-                  se separan, Mario deberá emprender una épica misión para
-                  encontrar a Luigi. Con la ayuda del champiñón local Toad y
-                  unas cuantas nociones de combate de la guerrera líder del
-                  Reino Champiñón, la princesa Peach, Mario descubre todo el
-                  poder que alberga en su interior.
-                </td>
-                <td class="tamanioCelda text-truncate">
-                  https://pics.filmaffinity.com/the_super_mario_bros_movie-521125124-large.jpg
-                </td>
-                <td>Aventura</td>
-                <td>
-                  <button class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                  </button>
-                  <button class="btn btn-danger">
-                    <i class="bi bi-x-square"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </article>
-      </section>
-    </main>
-    <!-- Modal para administrar peliculas -->
-    <div
-      class="modal fade"
-      id="modalPelicula"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Administrar Pelicula
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="formPelicula">
-              <div class="mb-3">
-                <label for="codigo">Código</label>
-                <input
-                  id="codigo"
-                  type="text"
-                  class="form-control"
-                  placeholder="123"
-                  maxlength="5"
-                  minlength="1"
-                  disabled
-                />
-              </div>
-              <div class="mb-3">
-                <label for="titulo">Titulo *</label>
-                <input
-                  id="titulo"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: Robotech"
-                  maxlength="60"
-                  minlength="2"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="descripcion">Descripcion *</label>
-                <textarea
-                  id="descripcion"
-                  rows="4"
-                  class="form-control"
-                  placeholder="Ej: En 1999 una nave de origen extraterrestre se estrella en una isla del Pacífico Sur llamada Macross."
-                  maxlength="200"
-                  minlength="2"
-                ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imagen">Imagen * <small class="text-secondary">
-                  (URL con formato .png, .jpg o gif)</small></label>
-                <input
-                  id="imagen"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: http://127.0.0.1:5500/pages/macross.png"
-                  maxlength="120"
-                  minlength="2"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="genero">Genero *</label>
-                <select id="genero" class="form-control">
-                  <option value="">Selecione una opcion</option>
-                  <option value="accion">Accion</option>
-                  <option value="drama">Drama</option>
-                  <option value="comedia">Comedia</option>
-                  <option value="aventura">Aventura</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="anio">Año</label>
-                <input
-                  id="anio"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: 2023"
-                  maxlength="4"
-                  minlength="4"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="duracion"
-                  >Duración<small class="text-secondary">
-                    (en minutos)</small
-                  ></label
-                >
-                <input
-                  id="duracion"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: 93 min"
-                  maxlength="2"
-                  minlength="2"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="pais">Pais</label>
-                <input
-                  id="pais"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: Argentina"
-                  maxlength="20"
-                  minlength="2"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="reparto"
-                  >Reparto<small class="text-secondary">
-                    (cada actor separado por , )</small
-                  ></label
-                >
-                <input
-                  id="reparto"
-                  type="text"
-                  class="form-control"
-                  placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
-                  maxlength="200"
-                  minlength="2"
-                />
-              </div>
-              <div
-                class="alert alert-danger mt-3 d-none"
-                role="alert"
-                id="alerta"
-              ></div>
-              <button class="btn btn-primary" type="submit" id="btnFormulario">
-                Enviar
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="bg-dark text-light text-center py-3">
-      <p>&copy; Todos los derechos reservados</p>
-    </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../js/app.js"></script>
-  </body>
-</html>
+import Pelicula from "./classPelicula.js";
+import { sumarioValidacion } from "./helpers.js";
+
+//variables globales
+let listaPeliculas = JSON.parse(localStorage.getItem("listaPeliculas")) || [];
+//saber si el array esta no vacio
+if (listaPeliculas.length !== 0) {
+  //quiero que sean objetos de tipo pelicula
+  listaPeliculas = listaPeliculas.map(
+    (pelicula) =>
+      new Pelicula(
+        pelicula.codigo,
+        pelicula.titulo,
+        pelicula.descripcion,
+        pelicula.imagen,
+        pelicula.genero,
+        pelicula.anio,
+        pelicula.duracion,
+        pelicula.pais,
+        pelicula.director,
+        pelicula.reparto
+      )
+  );
+}
+console.log(listaPeliculas);
+
+let formularioAdminPelicula = document.getElementById("formPelicula");
+let codigo = document.getElementById("codigo"),
+  titulo = document.getElementById("titulo"),
+  descripcion = document.getElementById("descripcion"),
+  imagen = document.getElementById("imagen"),
+  genero = document.getElementById("genero"),
+  anio = document.getElementById("anio"),
+  reparto = document.getElementById("reparto"),
+  duracion = document.getElementById("duracion"),
+  pais = document.getElementById("pais"),
+  director = document.getElementById("director");
+let modalFormPelicula = new bootstrap.Modal(
+  document.getElementById("modalPelicula")
+);
+console.log(modalFormPelicula);
+let btnCrearPelicula = document.getElementById("btnCrearPelicula");
+let crearPeliculaNueva = true; //crearPeliculaNueva =true tengo que crear una peli, cuando sea false tengo que editar.
+
+//manejadores de eventos
+formularioAdminPelicula.addEventListener("submit", prepararFormulario);
+btnCrearPelicula.addEventListener("click", mostrarFormularioPelicula);
+
+cargaInicial();
+
+function cargaInicial() {
+  if (listaPeliculas.length > 0) {
+    //dibujo una fila en la tabla
+    listaPeliculas.map((pelicula, indice) => crearFila(pelicula, indice + 1));
+  }
+}
+
+function crearFila(pelicula, indice) {
+  let tbody = document.querySelector("#tablaPelicula");
+  tbody.innerHTML += `<tr>
+  <td scope="col">${indice}</td>
+  <td>${pelicula.titulo}</td>
+  <td class="tamanioCelda text-truncate">
+    ${pelicula.descripcion}
+  </td>
+  <td class="tamanioCelda text-truncate">
+    ${pelicula.imagen}
+  </td>
+  <td>${pelicula.genero}</td>
+  <td>
+    <button class="btn btn-warning" onclick="prepararPelicula('${pelicula.codigo}')" >
+      <i class="bi bi-pencil-square"></i>
+    </button>
+    <button class="btn btn-danger" onclick="borrarPelicula('${pelicula.codigo}')">
+      <i class="bi bi-x-square"></i>
+    </button>
+  </td>
+</tr>`;
+}
+
+function prepararFormulario(e) {
+  e.preventDefault();
+  console.log("aqui creo la peli");
+  if (crearPeliculaNueva) {
+    crearPelicula();
+  } else {
+    editarPelicula();
+  }
+}
+
+function crearPelicula() {
+  //validar los datos del formulario
+
+  let resumen = sumarioValidacion(
+    titulo.value,
+    descripcion.value,
+    duracion.value,
+    imagen.value,
+    anio.value
+  );
+
+  if (resumen.length === 0) {
+    // los datos son validos
+    //cree el objeto
+    const peliculaNueva = new Pelicula(
+      undefined,
+      titulo.value,
+      descripcion.value,
+      imagen.value,
+      genero.value,
+      anio.value,
+      duracion.value,
+      pais.value,
+      director.value,
+      reparto.value
+    );
+    console.log(peliculaNueva); // "El Padrino"
+    //la voy agregar en un array
+    listaPeliculas.push(peliculaNueva);
+    console.log(listaPeliculas);
+    //almacenar el array de pelis en localsotarge
+    guardarEnLocalstorage();
+    //cerrar el modal con el formulario
+    limpiarFormulario();
+    //dibujar la fila nueva en la tabla
+    crearFila(peliculaNueva, listaPeliculas.length);
+    modalFormPelicula.hide();
+  } else {
+    // mostrar al usuario el cartel de error
+    let alerta = document.getElementById("alerta");
+    alerta.innerHTML = resumen;
+    alerta.className = "alert alert-danger mt-3";
+  }
+}
+
+function guardarEnLocalstorage() {
+  localStorage.setItem("listaPeliculas", JSON.stringify(listaPeliculas));
+}
+
+function limpiarFormulario() {
+  formularioAdminPelicula.reset();
+}
+
+function mostrarFormularioPelicula() {
+  modalFormPelicula.show();
+}
+
+window.borrarPelicula = (codigo) => {
+  Swal.fire({
+    title: "¿Esta seguro de eliminar la pelicula?",
+    text: "No se puede revertir este proceso",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Borrar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    console.log(result);
+    if (result.isConfirmed) {
+      //agrega mi codigo de borrar
+      //borrar la pelicula del array
+      let posicionPeli = listaPeliculas.findIndex(
+        (pelicula) => pelicula.codigo === codigo
+      );
+      listaPeliculas.splice(posicionPeli, 1);
+      //actualizar el localstorage
+      guardarEnLocalstorage();
+      //borrar la fila de la tabla
+      let tbody = document.querySelector("#tablaPelicula");
+      tbody.removeChild(tbody.children[posicionPeli]);
+      //todo: actualizar el numero de  las filas de la tabla
+      Swal.fire(
+        "Pelicula eliminada",
+        "La pelicula seleccionada fue eliminada correctamente",
+        "success"
+      );
+    }
+  });
+};
+
+window.prepararPelicula = (codigoPelicula) => {
+  //1- buscar el objeto que quiero mostrar en el form
+  let peliculaBuscada = listaPeliculas.find(
+    (pelicula) => pelicula.codigo === codigoPelicula
+  );
+  console.log(peliculaBuscada);
+  //2- mostrar el formulario con los datos
+  modalFormPelicula.show();
+  codigo.value = peliculaBuscada.codigo;
+  titulo.value = peliculaBuscada.titulo;
+  imagen.value = peliculaBuscada.imagen;
+  descripcion.value = peliculaBuscada.descripcion;
+  pais.value = peliculaBuscada.pais;
+  genero.value = peliculaBuscada.genero;
+  reparto.value = peliculaBuscada.reparto;
+  director.value = peliculaBuscada.director;
+  //3- cambiar el estado de la variable crearPeliculaNueva a false
+  crearPeliculaNueva = false;
+};
+
+function editarPelicula() {
+  console.log("aqui quiero editar");
+  //1- en que posicion esta almancenada la peli que quiero editar
+  let posicionPelicula = listaPeliculas.findIndex(
+    (pelicula) => pelicula.codigo === codigo.value
+  );
+  console.log(posicionPelicula);
+  //todo: chequear que todos los datos del formulario sean validos
+  //2- editar los datos de la pelicula seleccionada
+  
+  listaPeliculas[posicionPelicula].titulo = titulo.value;
+  listaPeliculas[posicionPelicula].descripcion = descripcion.value;
+  listaPeliculas[posicionPelicula].imagen = imagen.value;
+  listaPeliculas[posicionPelicula].pais = pais.value;
+  listaPeliculas[posicionPelicula].reparto = reparto.value;
+  listaPeliculas[posicionPelicula].genero = genero.value;
+  listaPeliculas[posicionPelicula].director = director.value;
+  listaPeliculas[posicionPelicula].duracion = duracion.value;
+  listaPeliculas[posicionPelicula].anio = anio.value;
+  //3 - actualizar el localstorage
+  guardarEnLocalstorage();
+  //4- actualizar la fila de la tabla
+  let tbody = document.querySelector("#tablaPelicula");
+  console.log(tbody.children[posicionPelicula].children[1]);
+  tbody.children[posicionPelicula].children[1].innerHTML = titulo.value;
+  tbody.children[posicionPelicula].children[2].innerHTML = descripcion.value;
+  tbody.children[posicionPelicula].children[3].innerHTML = imagen.value;
+  tbody.children[posicionPelicula].children[4].innerHTML = genero.value;
+
+  //5' limpiar formulario
+  limpiarFormulario();
+
+  //6- cerrar modal
+  modalFormPelicula.hide();
+}
