@@ -1,3 +1,6 @@
+.tamanioCelda {
+  max-width: 10rem;
+}
 
  body {
    min-height: 100vh;
